@@ -52,6 +52,35 @@ h3 {
 }
 
 /* === Estilos do Formulário === */
+.modo-cadastro-controle {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fffbe6;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modo-cadastro-controle label {
+    margin-bottom: 0;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #856404;
+    cursor: pointer;
+    white-space: normal;
+    line-height: initial;
+}
+
+.modo-cadastro-controle input[type="checkbox"] {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    accent-color: #0d6efd;
+}
+
 .form-linha {
     display: flex;
     flex-wrap: wrap;
@@ -112,12 +141,18 @@ h3 {
 .campo-form input[readonly] {
     background-color: #e9ecef;
     cursor: not-allowed;
+    opacity: 0.8;
 }
 
 .campo-form input:focus {
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#form-produto input[readonly]:focus {
+    border-color: #ced4da;
+    box-shadow: none;
 }
 
 #btn-principal-acao {
@@ -138,6 +173,11 @@ h3 {
 
 #btn-principal-acao:hover {
     background-color: #218838;
+}
+
+#btn-principal-acao:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
 }
 
 /* === Estilos dos Relatórios e Gráficos === */
@@ -166,16 +206,6 @@ h3 {
 
 .relatorio-item li strong {
     font-weight: 600;
-}
-
-.relatorio-item li.highlight-item {
-    font-weight: bold;
-    color: #c82333;
-}
-
-.relatorio-item li.highlight-sector {
-    font-weight: bold;
-    color: #0069d9;
 }
 
 #paragrafo-custo-total {
@@ -212,13 +242,11 @@ h3 {
     margin-top: 15px;
 }
 
-/* Cabeçalho da seção Histórico (Título + Exportar) */
 .historico-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
-    /* Reduzido espaço */
 }
 
 .historico-header h2 {
@@ -228,7 +256,6 @@ h3 {
 
 #btn-exportar-csv {
     padding: 5px 10px;
-    /* Botão exportar menor */
     font-size: 0.8em;
     background-color: #6c757d;
     color: white;
@@ -248,38 +275,29 @@ h3 {
     opacity: 0.7;
 }
 
-/* === FILTRO DE DATAS (NOVO) === */
 #filtro-data-container {
     margin-top: 10px;
-    /* Espaço acima */
     margin-bottom: 10px;
-    /* Espaço abaixo */
     padding: 8px 12px;
-    /* Padding interno menor */
     background-color: #e9ecef;
-    /* Fundo cinza */
     border: 1px solid #ced4da;
     border-radius: 4px;
     display: flex;
     align-items: center;
     gap: 8px;
-    /* Espaço entre elementos menor */
     flex-wrap: wrap;
 }
 
 #filtro-data-container label {
     font-size: 0.8em;
-    /* Label menor */
     font-weight: 500;
     color: #495057;
     margin-bottom: 0;
     margin-right: -4px;
-    /* Aproxima mais */
 }
 
 #filtro-data-container input[type="date"] {
     padding: 4px 6px;
-    /* Input data menor */
     font-size: 0.88em;
     border: 1px solid #ced4da;
     border-radius: 4px;
@@ -288,10 +306,8 @@ h3 {
 
 #filtro-data-container button {
     padding: 5px 10px;
-    /* Botões menores */
     font-size: 0.8em;
     background-color: #0d6efd;
-    /* Azul */
     color: white;
     border: none;
     border-radius: 4px;
@@ -304,23 +320,17 @@ h3 {
 }
 
 #btn-limpar-filtro-data {
-    /* Botão Limpar */
     background-color: #6c757d;
     padding: 5px 8px;
-    /* Menor */
     font-size: 1em;
-    /* Ícone um pouco menor */
     line-height: 1;
     margin-left: auto;
-    /* Empurra para direita */
 }
 
 #btn-limpar-filtro-data:hover {
     background-color: #5a6268;
 }
 
-
-/* === BUSCA NO HISTÓRICO === */
 .busca-historico-container {
     margin-top: 0;
     margin-bottom: 10px;
@@ -329,7 +339,6 @@ h3 {
     gap: 8px;
 }
 
-/* Ajusta margens */
 .busca-historico-container label {
     font-size: 0.85em;
     font-weight: 500;
@@ -347,9 +356,6 @@ h3 {
     max-width: 350px;
 }
 
-/* Reduzido max-width */
-
-/* Tabela e Wrapper */
 .tabela-wrapper {
     max-height: 400px;
     overflow-y: auto;
@@ -359,7 +365,6 @@ h3 {
     margin-top: 0;
 }
 
-/* Remove margin-top */
 #tabela-historico {
     width: 100%;
     min-width: 700px;
