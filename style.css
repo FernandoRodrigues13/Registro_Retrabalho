@@ -1,73 +1,120 @@
+/* === Variáveis Globais === */
+:root {
+    /* Sua Paleta Principal */
+    --cor-fundo-pagina: #dad7cdff;   /* Timberwolf - Fundo principal da página */
+    --cor-fundo-secao: #ffffff;      /* Branco para conteúdo principal das seções, para bom contraste */
+    --cor-fundo-alternativo: #f5f5f0; /* Um off-white sutil, derivado do Timberwolf, para zebrado/detalhes */
+
+    --cor-primaria: #588157ff;      /* Fern Green - Botões principais, destaques, títulos H1/H3 */
+    --cor-primaria-hover: #3a5a40ff;/* Hunter Green - Hover de botões primários, bordas importantes */
+
+    --cor-secundaria: #a3b18aff;    /* Sage - Elementos secundários, bordas sutis, fundos de cabeçalho de tabela */
+    --cor-secundaria-hover: #8a9a70ff; /* Um tom um pouco mais escuro/saturado de Sage para hover */
+
+    --cor-texto-principal: #344e41ff;/* Brunswick Green - Texto principal, títulos H2 */
+    --cor-texto-label: #3a5a40ff;   /* Hunter Green - Para labels de formulário, texto secundário importante */
+    --cor-texto-branco: #ffffff;
+
+    /* Cores de Ação e Feedback */
+    --cor-sucesso: var(--cor-primaria); /* Reutilizando Fern Green */
+    --cor-sucesso-hover: var(--cor-primaria-hover);
+    --cor-perigo: #c0392bff;        /* Vermelho Pomegranate (exemplo, pode ajustar) */
+    --cor-perigo-hover: #a93226ff;
+    --cor-aviso-fundo: #fcf8e3;     /* Amarelo pálido para .modo-cadastro-controle */
+    --cor-aviso-borda: #faf2cc;
+    --cor-aviso-texto: #8a6d3b;     /* Marrom escuro para texto de aviso */
+    --cor-aviso-destaque: var(--cor-primaria); /* Destaque lateral do aviso */
+
+
+    --cor-borda-input: var(--cor-secundaria);
+    --cor-borda-geral: #d0ccc4ff; /* Um tom ligeiramente mais escuro que Timberwolf para bordas gerais */
+    --cor-input-fundo-readonly: #e9ecef;
+
+
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --raio-borda: 0.25rem; /* 4px */
+    --sombra-sutil: 0 2px 5px rgba(52, 78, 65, 0.1); /* Sombra com base no Brunswick Green, bem sutil */
+}
+
 /* === Estilos Gerais === */
 body {
-    font-family: sans-serif;
+    font-family: var(--fonte-principal);
     margin: 20px;
-    background-color: #f4f4f4;
+    background-color: var(--cor-fundo-pagina); /* Timberwolf */
+    color: var(--cor-texto-principal); /* Brunswick Green */
+    line-height: 1.6;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: var(--cor-primaria); /* Fern Green */
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 2em;
 }
 
 section {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
+    background-color: var(--cor-fundo-secao); /* Branco */
+    border: 1px solid var(--cor-borda-geral);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-sutil);
 }
 
 h2 {
     margin-top: 0;
-    color: #555;
-    border-bottom: 1px dashed #ddd;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    font-size: 1.2em;
+    color: var(--cor-texto-principal); /* Brunswick Green */
+    border-bottom: 1px solid var(--cor-borda-geral);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-weight: 500;
 }
 
 h3 {
     margin-top: 0;
-    margin-bottom: 8px;
-    font-size: 0.95em;
-    color: #007bff;
-    padding-bottom: 4px;
-    border-bottom: 1px dotted #b8daff;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: var(--cor-primaria-hover); /* Hunter Green para H3 */
+    padding-bottom: 5px;
+    border-bottom: 1px dotted var(--cor-secundaria); /* Sage */
+    font-weight: 500;
 }
 
-/* === Layout Principal (Flexbox - 3 Colunas) === */
+/* === Layout Principal === */
 #layout-principal {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 20px; /* Aumentado o gap */
+    margin-bottom: 20px;
 }
 
-#layout-principal>section {
+#layout-principal > section {
     flex: 1 1 30%;
-    min-width: 280px;
+    min-width: 300px; /* Aumentado o min-width */
     display: flex;
     flex-direction: column;
 }
 
 /* === Estilos do Formulário === */
 .modo-cadastro-controle {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #fffbe6;
-    border: 1px solid #ffeeba;
-    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    background-color: var(--cor-aviso-fundo);
+    border: 1px solid var(--cor-aviso-borda);
+    border-left: 5px solid var(--cor-aviso-destaque);
+    border-radius: var(--raio-borda);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .modo-cadastro-controle label {
     margin-bottom: 0;
     font-size: 0.9em;
     font-weight: 500;
-    color: #856404;
+    color: var(--cor-aviso-texto);
     cursor: pointer;
     white-space: normal;
     line-height: initial;
@@ -75,17 +122,17 @@ h3 {
 
 .modo-cadastro-controle input[type="checkbox"] {
     cursor: pointer;
-    width: 15px;
-    height: 15px;
+    width: 16px; /* Um pouco maior */
+    height: 16px;
     margin: 0;
-    accent-color: #0d6efd;
+    accent-color: var(--cor-primaria); /* Fern Green */
 }
 
 .form-linha {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 15px; /* Aumentado o gap */
+    margin-bottom: 15px;
 }
 
 .campo-form {
@@ -94,36 +141,18 @@ h3 {
     min-width: 70px;
 }
 
-.campo-form.campo-op {
-    flex-basis: 80px;
-    flex-grow: 0.5;
-}
-
-.campo-form.campo-cod-entrada {
-    flex-basis: 90px;
-    flex-grow: 0.6;
-}
-
-.campo-form.campo-largo {
-    flex-basis: 220px;
-    flex-grow: 2;
-}
-
-.campo-form.campo-medio {
-    flex-basis: 110px;
-}
-
-.campo-form.campo-pequeno {
-    flex-basis: 65px;
-    flex-grow: 0.4;
-}
+.campo-form.campo-op { flex-basis: 80px; flex-grow: 0.5; }
+.campo-form.campo-cod-entrada { flex-basis: 90px; flex-grow: 0.6; }
+.campo-form.campo-largo { flex-basis: 220px; flex-grow: 2; }
+.campo-form.campo-medio { flex-basis: 110px; }
+.campo-form.campo-pequeno { flex-basis: 65px; flex-grow: 0.4; }
 
 .campo-form label {
     display: block;
-    font-size: 0.78em;
+    font-size: 0.875em;
     font-weight: 500;
-    color: #495057;
-    margin-bottom: 2px;
+    color: var(--cor-texto-label); /* Hunter Green */
+    margin-bottom: 5px;
     white-space: nowrap;
     line-height: 1.3;
 }
@@ -131,62 +160,71 @@ h3 {
 .campo-form input[type="text"],
 .campo-form input[type="number"] {
     width: 100%;
-    padding: 6px 8px;
+    padding: 8px 12px;
     font-size: 0.9em;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+    border: 1px solid var(--cor-borda-input); /* Sage */
+    border-radius: var(--raio-borda);
     box-sizing: border-box;
+    color: var(--cor-texto-principal);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .campo-form input[readonly] {
-    background-color: #e9ecef;
+    background-color: var(--cor-input-fundo-readonly);
     cursor: not-allowed;
-    opacity: 0.8;
 }
 
 .campo-form input:focus {
-    border-color: #80bdff;
+    border-color: var(--cor-primaria); /* Fern Green */
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(88, 129, 87, 0.25); /* Sombra baseada no Fern Green */
 }
 
 #form-produto input[readonly]:focus {
-    border-color: #ced4da;
+    border-color: var(--cor-borda-input);
     box-shadow: none;
 }
 
 #btn-principal-acao {
     display: block;
     width: 100%;
-    padding: 9px 14px;
-    margin-top: 15px;
+    padding: 10px 15px;
+    margin-top: 20px;
     font-size: 1em;
     font-weight: 500;
-    color: #fff;
-    background-color: #28a745;
+    color: var(--cor-texto-branco);
+    background-color: var(--cor-sucesso); /* Fern Green (reutilizado) */
     border: none;
-    border-radius: 4px;
+    border-radius: var(--raio-borda);
     cursor: pointer;
     transition: background-color 0.2s ease;
     margin-top: auto;
 }
 
 #btn-principal-acao:hover {
-    background-color: #218838;
+    background-color: var(--cor-sucesso-hover); /* Hunter Green */
+}
+
+#btn-principal-acao.modo-cadastro { /* Classe adicionada via JS */
+    background-color: var(--cor-primaria-hover); /* Hunter Green para salvar novo produto */
+}
+#btn-principal-acao.modo-cadastro:hover {
+    background-color: var(--cor-texto-principal); /* Brunswick Green para hover */
 }
 
 #btn-principal-acao:disabled {
-    background-color: #6c757d;
+    background-color: var(--cor-secundaria); /* Sage */
     cursor: not-allowed;
+    opacity: 0.65;
 }
 
 /* === Estilos dos Relatórios e Gráficos === */
 .relatorio-item {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 10px 12px;
-    margin-bottom: 10px;
+    background-color: var(--cor-fundo-alternativo); /* Off-white sutil */
+    border: 1px solid var(--cor-borda-geral);
+    border-radius: var(--raio-borda);
+    padding: 12px 15px;
+    margin-bottom: 12px;
 }
 
 .relatorio-item:last-child {
@@ -197,35 +235,37 @@ h3 {
     list-style: decimal inside;
     margin: 0;
     padding: 0 0 0 5px;
-    font-size: 0.88em;
+    font-size: 0.9em;
+    color: var(--cor-texto-principal);
 }
 
 .relatorio-item li {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .relatorio-item li strong {
     font-weight: 600;
+    color: var(--cor-primaria-hover); /* Hunter Green */
 }
 
 #paragrafo-custo-total {
-    font-size: 1.05em;
+    font-size: 1.1em;
     font-weight: bold;
-    color: #dc3545;
+    color: var(--cor-perigo);
     text-align: right;
-    margin: 5px 0 0 0;
+    margin: 8px 0 0 0;
 }
 
 .grafico-container {
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 10px;
+    border: 1px solid var(--cor-borda-geral);
+    border-radius: var(--raio-borda);
+    padding: 15px;
     margin-bottom: 15px;
-    min-height: 220px;
+    min-height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fdfdfd;
+    background-color: var(--cor-fundo-secao); /* Branco */
 }
 
 .grafico-container:last-child {
@@ -234,19 +274,19 @@ h3 {
 
 .grafico-container canvas {
     max-width: 100%;
-    max-height: 220px;
+    max-height: 230px; /* Ajuste para caber melhor */
 }
 
 /* === Estilos da Tabela de Histórico === */
 #secao-historico {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .historico-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* Aumentado */
 }
 
 .historico-header h2 {
@@ -254,85 +294,77 @@ h3 {
     border-bottom: none;
 }
 
-#btn-exportar-csv {
-    padding: 5px 10px;
-    font-size: 0.8em;
-    background-color: #6c757d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.15s ease-in-out;
-}
-
-#btn-exportar-csv:hover {
-    background-color: #5a6268;
-}
-
-#btn-exportar-csv:disabled {
-    background-color: #adb5bd;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
 #filtro-data-container {
     margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 8px 12px;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+    margin-bottom: 15px; /* Aumentado */
+    padding: 10px 15px;
+    background-color: var(--cor-fundo-alternativo); /* Off-white sutil */
+    border: 1px solid var(--cor-borda-geral);
+    border-radius: var(--raio-borda);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 #filtro-data-container label {
-    font-size: 0.8em;
+    font-size: 0.85em;
     font-weight: 500;
-    color: #495057;
+    color: var(--cor-texto-label); /* Hunter Green */
     margin-bottom: 0;
-    margin-right: -4px;
 }
 
 #filtro-data-container input[type="date"] {
-    padding: 4px 6px;
-    font-size: 0.88em;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    max-width: 140px;
+    padding: 6px 10px; /* Aumentado */
+    font-size: 0.9em;
+    border: 1px solid var(--cor-borda-input); /* Sage */
+    border-radius: var(--raio-borda);
+    max-width: 150px;
 }
 
-#filtro-data-container button {
-    padding: 5px 10px;
-    font-size: 0.8em;
-    background-color: #0d6efd;
-    color: white;
+#filtro-data-container button,
+#btn-exportar-csv,
+#btn-limpar-filtro-data {
+    padding: 7px 14px; /* Aumentado */
+    font-size: 0.875em;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--raio-borda);
     cursor: pointer;
-    transition: background-color 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out, opacity 0.15s ease-in-out;
+    color: var(--cor-texto-branco);
 }
 
+#filtro-data-container button { /* Botão Filtrar Período */
+    background-color: var(--cor-primaria); /* Fern Green */
+}
 #filtro-data-container button:hover {
-    background-color: #0b5ed7;
+    background-color: var(--cor-primaria-hover); /* Hunter Green */
+}
+
+#btn-exportar-csv {
+    background-color: var(--cor-texto-principal); /* Brunswick Green */
+}
+#btn-exportar-csv:hover {
+    background-color: var(--cor-primaria-hover); /* Hunter Green (para um pouco de cor) */
+}
+#btn-exportar-csv:disabled {
+    background-color: var(--cor-secundaria); /* Sage */
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 #btn-limpar-filtro-data {
-    background-color: #6c757d;
-    padding: 5px 8px;
-    font-size: 1em;
+    background-color: var(--cor-secundaria); /* Sage */
+    padding: 7px 10px;
+    font-size: 1em; /* Para o ícone de refresh ficar bom */
     line-height: 1;
     margin-left: auto;
 }
-
 #btn-limpar-filtro-data:hover {
-    background-color: #5a6268;
+    background-color: var(--cor-secundaria-hover);
 }
 
 .busca-historico-container {
-    margin-top: 0;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -340,96 +372,104 @@ h3 {
 }
 
 .busca-historico-container label {
-    font-size: 0.85em;
+    font-size: 0.9em;
     font-weight: 500;
-    color: #495057;
+    color: var(--cor-texto-label); /* Hunter Green */
     margin-bottom: 0;
     white-space: nowrap;
 }
 
 #busca-historico {
     flex-grow: 1;
-    padding: 6px 10px;
+    padding: 8px 12px; /* Aumentado */
     font-size: 0.9em;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    max-width: 350px;
+    border: 1px solid var(--cor-borda-input); /* Sage */
+    border-radius: var(--raio-borda);
+    max-width: 400px; /* Aumentado */
 }
 
-.tabela-wrapper {
-    max-height: 400px;
+.table-scroll-wrapper { /* Renomeado de .tabela-wrapper */
+    max-height: 450px;
     overflow-y: auto;
-    overflow-x: auto;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    margin-top: 0;
+    overflow-x: auto; /* Manter se a tabela for larga */
+    border: 1px solid var(--cor-borda-geral);
+    border-radius: var(--raio-borda);
+    margin-top: 0; /* Já tem margem no .busca-historico-container */
 }
 
 #tabela-historico {
     width: 100%;
-    min-width: 700px;
+    min-width: 750px;
     border-collapse: collapse;
 }
 
 #tabela-historico th,
 #tabela-historico td {
-    padding: 8px 10px;
-    border-bottom: 1px solid #e9ecef;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--cor-borda-geral);
     text-align: left;
-    font-size: 0.88em;
+    font-size: 0.875em;
     vertical-align: middle;
-    white-space: nowrap;
+    white-space: nowrap; /* Pode ser necessário ajustar por coluna */
 }
 
 #tabela-historico thead th {
-    background-color: #f8f9fa;
+    background-color: var(--cor-secundaria); /* Sage */
+    color: var(--cor-texto-branco); /* Branco para contraste com Sage */
     font-weight: 600;
     position: sticky;
     top: 0;
     z-index: 1;
     border-bottom-width: 2px;
+    border-bottom-color: var(--cor-primaria-hover); /* Hunter Green */
 }
 
 #tabela-historico thead th:not(:last-child) {
-    border-right: 1px solid #e9ecef;
+    border-right: 1px solid var(--cor-borda-geral);
 }
 
 .historico-vazio {
     text-align: center !important;
-    color: #6c757d;
-    padding: 25px 0 !important;
+    color: var(--cor-texto-label); /* Hunter Green */
+    padding: 30px 0 !important; /* Aumentado */
     font-style: italic;
+    font-size: 1em;
+}
+
+#tabela-historico tbody tr:nth-child(even) {
+    background-color: var(--cor-fundo-alternativo); /* Off-white sutil */
 }
 
 #tabela-historico tbody tr:hover {
-    background-color: #eef2f7;
+    background-color: rgba(163, 177, 138, 0.2); /* Sage com transparência para hover */
 }
 
 #tabela-historico tbody tr:last-child td {
     border-bottom: none;
 }
 
-#tabela-historico th:nth-child(3),
+/* Colunas com comportamento especial */
+#tabela-historico th:nth-child(3), /* Descrição */
 #tabela-historico td:nth-child(3) {
-    white-space: normal;
-    min-width: 150px;
+    white-space: normal; /* Permitir quebra de linha na descrição */
+    min-width: 200px; /* Aumentado min-width para descrição */
 }
 
-#tabela-historico th:nth-child(6),
-#tabela-historico th:nth-child(7),
+#tabela-historico th:nth-child(6), /* Qtd. */
+#tabela-historico th:nth-child(7), /* Custo */
 #tabela-historico td:nth-child(6),
 #tabela-historico td:nth-child(7) {
     text-align: right;
-    font-family: Consolas, Monaco, monospace;
+    font-family: Consolas, Monaco, monospace; /* Mantido para números */
 }
 
 .btn-excluir-registro {
-    background-color: #dc3545;
-    color: white;
+    background-color: var(--cor-perigo);
+    color: var(--cor-texto-branco);
     border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 0.8em;
+    border-radius: var(--raio-borda);
+    padding: 5px 10px; /* Aumentado */
+    font-size: 0.85em;
     font-weight: 500;
     line-height: 1.4;
     cursor: pointer;
@@ -439,12 +479,12 @@ h3 {
 }
 
 .btn-excluir-registro:hover {
-    background-color: #c82333;
+    background-color: var(--cor-perigo-hover);
 }
 
-#tabela-historico th:last-child,
+#tabela-historico th:last-child, /* Ações */
 #tabela-historico td:last-child {
     text-align: center;
     white-space: nowrap;
-    width: 80px;
+    width: 90px; /* Aumentado */
 }
