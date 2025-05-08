@@ -1,0 +1,19 @@
+# Ignorar pastas node_modules em qualquer lugar do projeto
+node_modules/
+
+# Ignorar o banco de dados dentro da pasta do backend
+controle-retrabalho-backend/database.db
+
+# Arquivos de Log e Temporários comuns
+npm-debug.log*
+yarn-error.log
+*.log
+logs/
+
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Se você NÃO quiser enviar o arquivo CSV para o GitHub,
+# adicione a linha abaixo (remova o '#' do início):
+# controle-retrabalho-backend/meus_produtos_corrigido.csv
